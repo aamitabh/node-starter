@@ -1,15 +1,24 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "template node typescript project",
   "main": "server.js",
   "scripts": {
-    "dev": "ts-node src/es6-modules/server.ts",
-    "build": "tsc",
-    "start": "node dist/src/es6-modules/server.js"
+    "start": "ts-node -r tsconfig-paths/register src/server.ts",
+    "start:watch": "nodemon",
+    "build": "tsc -p ./tsconfig.json",
+    "start:prod": "node dist/server.js",
+    "lint": "tslint --fix -c tslint.json './src/**/*.ts'",
+    "pretest": "npm run lint",
+    "clean": "rm -rf node_modules && rm -rf dist",
+    "test": "cross-env NODE_ENV=test cross-env jest --config jest.json",
+    "test:watch": "cross-env NODE_ENV=test jest --watch --config jest.json",
+    "test:cov": "cross-env NODE_ENV=test jest --coverage --config jest.json",
+    "test:e2e": "cross-env SKIP_MIDDLEWARE=true NODE_ENV=test jest --config=e2e/jest-e2e.json --forceExit",
+    "test:all": "npm run test:cov && npm run test:e2e"
   },
   "keywords": [],
-  "author": "",
+  "author": "Amitabh Arora",
   "license": "ISC",
   "dependencies": {
     "eslint": "^5.1.0"
