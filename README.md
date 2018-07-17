@@ -27,6 +27,7 @@ npm install -g ts-node
 # you want to lock the version of typescript
 npm install -D typescript@next
 npm install -D ts-node@next
+npm install -D tsconfig-paths
 ```
 #### Configure VSCode ".vscode/settings.json"
 
@@ -39,22 +40,28 @@ npm install -D ts-node@next
 #### Config typescript "tsconfig.json"
 
 ```js
-{ // TypeScript configuration file: provides options to the TypeScript 
-    // compiler (tsc) and makes VSCode recognize this folder as a TS project,
-    // enabling the VSCode build tasks "tsc: build" and "tsc: watch".
+{
     "compilerOptions": {
       "target": "es6",            // Compatible with older browsers
       "module": "commonjs",        // Can also use "umd" for compatibility with both Node.js and browser
-      "outdir": "./dist",          // compiled .js files go here
+      "outDir": "./dist/",          // compiled .js files go here
+      "baseUrl": ".",
+      "paths": {
+        "*": [
+          "node_modules/*",
+          "src/types/*"
+      ]},
       "moduleResolution": "node", // Tell tsc to look in node_modules for modules
       "sourceMap": true,          // Creates *.js.map files
       "strict": true,             // Strict types, eg. prohibits `var x=0; x=null`
       "allowJs": true,
       "alwaysStrict": true,        // Enable JavaScript's "use strict" mode
+      "noEmitOnError": true,
       "declaration": false,
       "noImplicitAny": false,        // Raise error on expressions and declarations with an implied 'any' type.
       "removeComments": true,
       "noLib": false,
+      "lib": ["es6", "dom"],
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "typeRoots": ["node_modules/@types", "custom_typings"]
@@ -67,7 +74,6 @@ npm install -D ts-node@next
         "node_modules"
     ]
   }
-
 ```
 
 #### nodemon.json configuration
