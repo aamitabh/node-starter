@@ -86,6 +86,12 @@ npm install -D tsconfig-paths
 }
 ```
 
+If you do not want to use nodemon.json then you cal also add the script below to package.json
+
+```json
+"watch": "nodemon --exec ts-node -- ./src/index.ts"
+```
+
 #### Config start scripts
 
 ```json

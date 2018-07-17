@@ -1,3 +1,6 @@
+# Project specific
+server/dist
+
 # Logs
 logs
 *.log
