@@ -15,7 +15,7 @@
       "allowJs": true,
       "alwaysStrict": true,        // Enable JavaScript's "use strict" mode
       "declaration": false,
-      "noImplicitAny": false,        // Raise error on expressions and declarations with an implied 'any' type.
+      "noImplicitAny": true,        // Raise error on expressions and declarations with an implied 'any' type.
       "removeComments": true,
       "noLib": false,
       "emitDecoratorMetadata": true,
