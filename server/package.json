@@ -11,11 +11,12 @@
     "lint": "tslint --fix -c tslint.json './src/**/*.ts'",
     "pretest": "npm run lint",
     "clean": "rm -rf node_modules && rm -rf dist",
-    "test": "cross-env NODE_ENV=test cross-env jest --config jest.json",
-    "test:watch": "cross-env NODE_ENV=test jest --watch --config jest.json",
-    "test:cov": "cross-env NODE_ENV=test jest --coverage --config jest.json",
-    "test:e2e": "cross-env SKIP_MIDDLEWARE=true NODE_ENV=test jest --config=e2e/jest-e2e.json --forceExit",
-    "test:all": "npm run test:cov && npm run test:e2e"
+    "test": "mocha --require ts-node/register test/**/*.ts",
+    "jest": "cross-env NODE_ENV=test cross-env jest --config jest.json",
+    "jest:watch": "cross-env NODE_ENV=test jest --watch --config jest.json",
+    "jest:cov": "cross-env NODE_ENV=test jest --coverage --config jest.json",
+    "jest:e2e": "cross-env SKIP_MIDDLEWARE=true NODE_ENV=test jest --config=e2e/jest-e2e.json --forceExit",
+    "jest:all": "npm run test:cov && npm run test:e2e"
   },
   "keywords": [],
   "author": "Amitabh Arora",
