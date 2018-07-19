@@ -22,10 +22,11 @@ console.log(chalk.default.green('// Passing TYPED objects //'));
 type httpReqRes = { req?: string; res?: string }
 type user = { first?: string; last?: string }
 
-function getTypedPerson(rr: httpReqRes): user {
+function getTypedPerson(rr: httpReqRes = {req: "John", res: "Doe"}): user {
   return { first: rr.req, last: rr.res }
 }
 
+// let hrr: httpReqRes = {req: "John", res: "Doe"}
 console.log(`\ngetTypedPerson({}) = ${JSON.stringify(getTypedPerson({}), undefined, 2)}`)
 console.log(`\ngetTypedPerson({res: "Arora"}) = ${JSON.stringify(getTypedPerson({ res: "Arora" }), undefined, 2)}`)
 console.log(`\ngetTypedPerson({req: "Amitabh", res: "Arora"}) = ${JSON.stringify(getTypedPerson({ req: "Amitabh", res: "Arora" }), undefined, 2)}`)
