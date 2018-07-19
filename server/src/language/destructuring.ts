@@ -23,5 +23,12 @@ const line = {
 const {start: {x: startX, y: startY}} = line
 
 // Assign variables from arrays
-// q, r take 1st and 2nd value from the array
-const [q, r] = [1, 2, 3, 4]
+// q, r take 1st and 3nd value from the array
+const [q,, r] = [1, 2, 3, 4]
+
+// Rest oerator
+// tail hould be [3, 4]
+const [q2, r2, ...tail] = [1, 2, 3, 4, 5]
+
+// Pass objects as function parameters
+// See functions/passing-objects.ts
