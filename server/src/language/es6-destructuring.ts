@@ -5,9 +5,9 @@
 
 // Old way
 let voxel = {x: 3.6, y: 7.4, z: 4.56};
-let xv = voxel.x;
-let yv = voxel.y;
-let zv = voxel.z;
+// let xv = voxel.x;
+// let yv = voxel.y;
+// let zv = voxel.z;
 
 // New way: Assign variables from objects
 let {x, y, z} = voxel
@@ -26,9 +26,13 @@ const {start: {x: startX, y: startY}} = line
 // q, r take 1st and 3nd value from the array
 const [q,, r] = [1, 2, 3, 4]
 
-// Rest oerator
-// tail hould be [3, 4]
+// Rest operator
+// tail should be [3, 4]
 const [q2, r2, ...tail] = [1, 2, 3, 4, 5]
 
 // Pass objects as function parameters
 // See functions/passing-objects.ts
+
+// Practical example
+// const {json: jsonMiddleware} = require('body-parser')
+// const {username, password} = req.body
