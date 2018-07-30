@@ -1,0 +1,13 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "static-variable.js",
+  "scripts": {
+    "start:passing-objects": "ts-node -r tsconfig-paths/register passing-objects",
+    "start:static-variable": "ts-node -r tsconfig-paths/register static-variable"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

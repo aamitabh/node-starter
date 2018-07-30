@@ -4,6 +4,9 @@ import * as chalk from 'chalk'
 // --------------------------------------------------------
 // Default and Optional parameters and return types
 // --------------------------------------------------------
+console.log('// ----------------------------------------')
+console.log('// Default and Optional parameters and return types')
+console.log('// ----------------------------------------')
 function getPerson({ req = "John", res = "Doe" }: { req?: string, res?: string }): { first: string; last: string } {
   return { first: req, last: res }
 }
@@ -15,15 +18,25 @@ console.log(`\ngetPerson({req: "Amitabh", res: "Arora"}) = ${JSON.stringify(getP
 // --------------------------------------------------------
 // Pass object types "httpReqRes" and "user"
 // --------------------------------------------------------
+console.log('\n\n// ----------------------------------------')
+console.log('// Pass object types "httpReqRes" and "user"')
+console.log('// ----------------------------------------')
+
+// Define types with option fields
 type httpReqRes = { req?: string; res?: string }
 type user = { first?: string; last?: string }
-  // types defined with option fields
 
-function getTypedPerson(rr: httpReqRes = {req: "John", res: "Doe"}): user {
-  return { first: rr.req, last: rr.res }
+function getTypedPerson({ req = 'John', res = 'Doe' }: httpReqRes): user {
+  return { first: req, last: res }
 }
+console.log(`\n({}) = ${JSON.stringify(getTypedPerson({}), undefined, 2)}`)
+console.log(`\n({res: "Arora"}) = ${JSON.stringify(getTypedPerson({ res: "Arora" }), undefined, 2)}`)
+console.log(`\n({req: "Amitabh", res: "Arora"}) = ${JSON.stringify(getTypedPerson({ req: "Amitabh", res: "Arora" }), undefined, 2)}`)
 
-let hrr: httpReqRes = {req: "John", res: "Doe"}
-console.log(`\ngetTypedPerson({}) = ${JSON.stringify(getTypedPerson({}), undefined, 2)}`)
-console.log(`\ngetTypedPerson({res: "Arora"}) = ${JSON.stringify(getTypedPerson({ res: "Arora" }), undefined, 2)}`)
-console.log(`\ngetTypedPerson({req: "Amitabh", res: "Arora"}) = ${JSON.stringify(getTypedPerson({ req: "Amitabh", res: "Arora" }), undefined, 2)}`)
+// function getTypedPerson1(rr: httpReqRes = { req: "John", res: "Doe" }): user {
+//   return { first: rr.req, last: rr.res }
+// }
+// console.log(`\n({}) = ${JSON.stringify(getTypedPerson1({}), undefined, 2)}`)
+// console.log(`\n({res: "Arora"}) = ${JSON.stringify(getTypedPerson1({ res: "Arora" }), undefined, 2)}`)
+// console.log(`\n({req: "Amitabh", res: "Arora"}) = ${JSON.stringify(getTypedPerson1({ req: "Amitabh", res: "Arora" }), undefined, 2)}`)
+

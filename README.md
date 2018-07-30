@@ -56,12 +56,10 @@ npm install -D tsconfig-paths
       "strict": true,             // Strict types, eg. prohibits `var x=0; x=null`
       "allowJs": true,
       "alwaysStrict": true,        // Enable JavaScript's "use strict" mode
-      "noEmitOnError": true,
       "declaration": false,
-      "noImplicitAny": false,        // Raise error on expressions and declarations with an implied 'any' type.
+      "noImplicitAny": true,        // Raise error on expressions and declarations with an implied 'any' type.
       "removeComments": true,
       "noLib": false,
-      "lib": ["es6", "dom"],
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "typeRoots": ["node_modules/@types", "custom_typings"]
@@ -106,4 +104,18 @@ If you do not want to use nodemon.json then you cal also add the script below to
 
 ```bash
 npm install express @types/express
+```
+
+### Testing Framework Install
+
+```bash
+npm install -D mocha chai @types/mocha @types/chai 
+```
+
+Add scripts to pacjage.json
+
+```json
+"scripts": {
+    "test": "mocha --require ts-node/register test/**/*.ts"
+},
 ```
