@@ -2,7 +2,7 @@ import { Entity } from './Entity'
 
 export class Attendee extends Entity {
     firstName: string
-    middleName: string
+    middleName?: string
     lastName: string
 
     constructor({ id, firstName, middleName, lastName }
