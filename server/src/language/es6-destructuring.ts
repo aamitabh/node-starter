@@ -36,3 +36,9 @@ const [q2, r2, ...tail] = [1, 2, 3, 4, 5]
 // Practical example
 // const {json: jsonMiddleware} = require('body-parser')
 // const {username, password} = req.body
+//
+// [line1, line2, line3, , line5] = file.split('\n')
+
+// When you destructure on properties that are not defined, you get undefined
+var { missing } = {};
+console.log(missing); // should return undefined
