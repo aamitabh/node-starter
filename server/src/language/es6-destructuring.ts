@@ -1,6 +1,7 @@
 // 
 // References:
 // https://www.youtube.com/watch?v=-vR3a11Wzt0
+// https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/
 // 
 
 // Old way
@@ -39,6 +40,3 @@ const [q2, r2, ...tail] = [1, 2, 3, 4, 5]
 //
 // [line1, line2, line3, , line5] = file.split('\n')
 
-// When you destructure on properties that are not defined, you get undefined
-var { missing } = {};
-console.log(missing); // should return undefined
