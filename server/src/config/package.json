@@ -4,9 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node -r tsconfig-paths/register index"
+    "dev": "cross-env NODE_ENV='development' cross-env PORT='3009' ts-node -r tsconfig-paths/register index",
+    "test": "cross-env NODE_ENV='test' cross-env PORT='3010' cross-env LOGGER_LEVEL='warn' ts-node -r tsconfig-paths/register index",
+    "error": "cross-env NODE_ENV='test' cross-env PORT='3010' cross-env LOGGER_LEVEL='error' cross-env LOGGER_ENABLED='xyz' ts-node -r tsconfig-paths/register index",
+    "prod": "cross-env NODE_ENV='production' ts-node -r tsconfig-paths/register index"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "joi": "^13.6.0"
+  }
 }
