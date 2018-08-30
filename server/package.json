@@ -29,7 +29,8 @@
     "dotenv": "^6.0.0",
     "eslint": "^5.1.0",
     "path": "^0.12.7",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "winston": "^3.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.4",

@@ -1,17 +1,27 @@
-import winston from "winston";
-import { Logger } from "winston";
-import { ENVIRONMENT } from "./secrets";
+import * as winston from "winston"
+import { ENVIRONMENT } from "./secrets"
 
-const logger = new (Logger)({
+import {config} from '../config'
+
+export const logger = winston.createLogger({
     transports: [
-        new (winston.transports.Console)({ level: process.env.NODE_ENV === "production" ? "error" : "debug" }),
-        new (winston.transports.File)({ filename: "debug.log", level: "debug"})
-    ]
-});
+        new winston.transports.Console({
+            format: winston.format.combine(
+                winston.format.colorize(),
+                winston.format.simple()
+            )
+        })
+    ],
+    level: config.logger.level
+})
 
-if (process.env.NODE_ENV !== "production") {
-    logger.debug("Logging initialized at debug level");
-}
+// export const logger = new (winston)({
+//     transports: [
+//         new (winston.transports.Console)({ level: process.env.NODE_ENV === "production" ? "error" : "debug" }),
+//         new (winston.transports.File)({ filename: "debug.log", level: "debug"})
+//     ]
+// });
 
-export default logger;
-
+// if (process.env.NODE_ENV !== "production") {
+//     logger.debug("Logging initialized at debug level");
+// }

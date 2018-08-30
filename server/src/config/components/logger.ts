@@ -1,4 +1,6 @@
-const joi = require('joi')
+import * as joi from 'joi'
+
+import * as baseConfig from './base'
 
 const envVarsSchema = joi.object({
   LOG_LEVEL: joi.string()
