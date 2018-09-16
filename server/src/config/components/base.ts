@@ -1,5 +1,4 @@
 import * as joi from 'joi'
-// const joi = require('joi')
 
 // List of environment values defined as enums. 
 export enum EnvNames {

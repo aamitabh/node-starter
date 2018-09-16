@@ -1,6 +1,25 @@
 import * as colors from 'colors'
 import * as chalk from 'chalk'
 
+/**
+ * ------------------------------------------------------
+ * Basic Javascript way
+ * ------------------------------------------------------
+ */
+// Old way
+function oldOps(option){
+  var protocol = option.protocol;
+  var method = option.method;
+  var port = option.port;
+  console.log(port);
+}
+
+// New way
+function newOps({protocol, method, port}){
+  console.log(port)
+}
+
+
 // --------------------------------------------------------
 // Default and Optional parameters and return types
 // --------------------------------------------------------
